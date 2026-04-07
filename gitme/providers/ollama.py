@@ -8,6 +8,13 @@ class OllamaProvider(BaseProvider):
         self.model = model
         self.url = "http://127.0.0.1:11434/api/chat"
 
+    def _fix_subject_line(self, message: str) -> str:
+        lines = message.split("\n")
+        if lines and ": " in lines[0]:
+            prefix, desc = lines[0].split(": ", 1)
+            lines[0] = f"{prefix}: {desc[0].lower() + desc[1:]}"
+        return "\n".join(lines)
+
     def generate(self, system_prompt: str, user_prompt: str) -> str:
         payload = {
             "model": self.model,
@@ -30,4 +37,5 @@ class OllamaProvider(BaseProvider):
                 "Ollama took too long to respond. Try a smaller model."
             )
 
-        return response.json()["message"]["content"].strip()
+        result = response.json()["message"]["content"].strip()
+        return self._fix_subject_line(result)

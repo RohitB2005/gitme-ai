@@ -5,6 +5,7 @@ from rich.panel import Panel
 from .diff import get_staged_diff
 from .prompt import SYSTEM_PROMPT, build_prompt
 from .providers.ollama import OllamaProvider
+from .config import load_config, save_config, show_config
 
 console = Console()
 
@@ -40,3 +41,27 @@ def main(copy, context):
             console.print("[dim]Copied to clipboard.[/dim]")
         except Exception:
             console.print("[yellow]Could not copy to clipboard.[/yellow]")
+
+@click.group()
+def config():
+    """Manage gitme configuration."""
+    pass
+
+@config.command("set")
+@click.argument("key")
+@click.argument("value")
+def config_set(key, value):
+    """Set a config value. E.g: gitme config set model llama3.2"""
+    valid_keys = ["provider", "model", "style"]
+    if key not in valid_keys:
+        console.print(f"[red]Unknown key '{key}'. Valid keys: {', '.join(valid_keys)}[/red]")
+        raise SystemExit(1)
+    save_config({key: value})
+    console.print(f"[green]Set {key} = {value}[/green]")
+
+@config.command("show")
+def config_show():
+    """Show current config."""
+    cfg = show_config()
+    for key, value in cfg.items():
+        console.print(f"[dim]{key}:[/dim] {value}")
