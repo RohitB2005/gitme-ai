@@ -1,4 +1,4 @@
-# gitme-cli
+# gitme-ai
 
 AI-powered git commit message generator. Reads your staged changes and generates a well-formatted [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) message using a local or cloud LLM.
 
@@ -16,7 +16,7 @@ AI-powered git commit message generator. Reads your staged changes and generates
 ## Installation
 
 ```bash
-pip install gitme-cli
+pip install gitme-ai
 ```
 
 ---
