@@ -4,7 +4,7 @@ from .base import BaseProvider
 
 class OpenRouterProvider(BaseProvider):
 
-    def __init__(self, model: str = "meta-llama/llama-3.1-8b-instruct:free", api_key: str = ""):
+    def __init__(self, model: str = "nvidia/nemotron-3-nano-30b-a3b:free", api_key: str = ""):
         self.model = model
         self.api_key = api_key
         self.url = "https://openrouter.ai/api/v1/chat/completions"
