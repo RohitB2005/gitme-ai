@@ -4,7 +4,7 @@ from .base import BaseProvider
 
 class OllamaProvider(BaseProvider):
 
-    def __init__(self, model: str = "llama3.2"):
+    def __init__(self, model: str = "gemma3n:e4b"):
         self.model = model
         self.url = "http://127.0.0.1:11434/api/chat"
 

@@ -6,7 +6,7 @@ CONFIG_PATH = Path.home() / ".gitme.toml"
 
 DEFAULTS = {
     "provider": "ollama",
-    "model": "llama3.2",
+    "model": "gemma3n:e4b",
     "style": "conventional",
 }
 

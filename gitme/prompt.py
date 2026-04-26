@@ -17,6 +17,7 @@ Commit types:
 - style:    formatting or whitespace only, no logic changes
 - test:     adding or updating tests only
 - chore:    maintenance, config changes, dependency updates
+When a change qualifies for multiple types, use the highest-priority type: feat > fix > refactor > test > chore > docs > style
 
 Body rules:
 - omit the body entirely unless the WHY behind the change is genuinely non-obvious

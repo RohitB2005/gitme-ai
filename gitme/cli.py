@@ -14,7 +14,7 @@ console = Console()
 
 def get_provider(cfg: dict):
     provider = cfg.get("provider", "ollama")
-    model = cfg.get("model", "llama3.2")
+    model = cfg.get("model", "gemma3n:e4b")
 
     if provider == "ollama":
         return OllamaProvider(model=model)

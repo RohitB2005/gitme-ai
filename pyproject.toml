@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "gitme-ai"
-version = "0.1.2"
+version = "0.1.3"
 description = "AI-powered git commit message generator"
 readme = "README.md"
 requires-python = ">=3.11"

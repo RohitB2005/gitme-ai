@@ -32,7 +32,7 @@ gitme
 
 That's it. gitme reads your staged diff, sends it to the AI, and prints a suggested commit message in your terminal.
 
-By default it uses **Ollama with llama3.2** running locally. See [Providers](#providers) below to set up Ollama or switch to a cloud provider.
+By default it uses **Ollama with gemma3n:e4b** running locally. See [Providers](#providers) below to set up Ollama or switch to a cloud provider.
 
 ---
 
@@ -77,7 +77,7 @@ Download from [ollama.com](https://ollama.com) and open the app. You'll see it i
 **2. Pull the model**
 
 ```bash
-ollama pull llama3.2
+ollama pull gemma3n:e4b
 ```
 
 **3. Run gitme**
@@ -153,7 +153,7 @@ gitme-config show
 Output:
 ```
 provider: ollama
-model: llama3.2
+model: gemma3n:e4b
 style: conventional
 ```
 
@@ -168,7 +168,7 @@ gitme-config set <key> <value>
 | Key | Description | Default |
 |-----|-------------|---------|
 | `provider` | Which provider to use: `ollama`, `openai`, or `openrouter` | `ollama` |
-| `model` | Model name for the active provider | `llama3.2` |
+| `model` | Model name for the active provider | `gemma3n:e4b` |
 | `style` | Commit style (currently `conventional`) | `conventional` |
 | `openai_api_key` | Your OpenAI API key | — |
 | `openrouter_api_key` | Your OpenRouter API key | — |
@@ -183,7 +183,7 @@ gitme-config set openai_api_key sk-...
 
 # Switch back to Ollama
 gitme-config set provider ollama
-gitme-config set model llama3.2
+gitme-config set model gemma3n:e4b
 ```
 
 ---
